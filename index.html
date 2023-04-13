@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迎賓機</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/all.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="container-fluid row">
+            <div class="col-5">
+                <h1 class="text-center mt-3">多媒體機管理系統</h1>
+                <form class="row g-3 needs-validation" validate>
+                    <div class="col-6">
+                        <label for="validationCustom01" class="form-label">場站名稱</label>
+                        <input v-model="parking.parkName" type="text" class="form-control" id="validationCustom01"
+                            required>
+                        <div class="valid-feedback">
+                            請填寫場站名稱
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label for="validationCustom02" class="form-label">迎賓訊息</label>
+                        <input v-model="parking.message" type="text" class="form-control" id="validationCustom02"
+                            required>
+                        <div class="valid-feedback">
+                            請填寫迎賓訊息
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <!-- <div class="slidecontainer">
+                            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                            <p>Value: <span id="demo"></span></p>
+                        </div> -->
+                        <label for="validationCustom03" class="form-label">費率設置第一行</label>
+                        <input v-model="parking.text1" type="text" class="form-control" id="validationCustom03"
+                            required>
+                        <div class="invalid-feedback">
+                            請填寫費率設置
+                        </div>
+                        <p>設定第一行字體大小</p>
+                        <select onchange="fzchange1(this.options[this.selectedIndex].value);">
+                            <option value="8">8</option>
+                            <option value="10">10</option>
+                            <option value="12">12</option>
+                            <option value="16">16</option>
+                            <option value="32">32</option>
+                            <option value="64">64</option>
+                            <option value="128">128</option>
+                        </select>
+                        <hr>
+                        <label for="validationCustom04" class="form-label">費率設置第二行</label>
+                        <input v-model="parking.text2" type="text" class="form-control" id="validationCustom04"
+                            required>
+                        <div class="invalid-feedback">
+                            請填寫費率設置
+                        </div>
+                        <p>設定第二行字體大小</p>
+                        <select onchange="fzchange2(this.options[this.selectedIndex].value);">
+                            <option value="8">8</option>
+                            <option value="10">10</option>
+                            <option value="12">12</option>
+                            <option value="16">16</option>
+                            <option value="32">32</option>
+                            <option value="64">64</option>
+                            <option value="128">128</option>
+                        </select>
+
+                        <div class="col-12">
+                            <button class="btn btn-primary mt-3" type="submit">更新</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-6">
+                <h2 class="text-center mt-3">畫面確認</h2>
+                <div class="container-fluid" style="border: 1px solid burlywood; height: 80vh;">
+                    <div class="text-center px-5 pe-5" style="width: 100%; background: bisque;">
+                        <span id="current"></span>
+                    </div>
+                    <h1 class="text-center mt-1">{{ this.parking.parkName }}</h1>
+                    <h2 class="text-center">{{ this.parking.message }}</h2>
+                    <div v-if="parking.text1 " style="border: 2px solid salmon;">
+                        <p class="text-center" id="changesize1">{{ parking.text1 }}</p>
+                        <p class="text-center" id="changesize2">{{ parking.text2 }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script type="module" src="./js/vue.js"></script>
+    <script src="./js/all.js"></script>
+</body>
+
+</html>
